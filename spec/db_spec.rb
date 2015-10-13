@@ -5,9 +5,9 @@ describe "schema_migration.sql" do
     @sql_runner.execute_schema_migration_sql
   end
 
-  it "creates pokemon table" do
+  it "creates pokemons table" do
     # .tables should include pokemon
-    expect(@db.execute("SELECT name FROM sqlite_master WHERE type IN ('table','view') AND name NOT LIKE 'sqlite_%' UNION ALL SELECT name FROM sqlite_temp_master WHERE type IN ('table','view') ORDER BY 1;")).to eq([["pokemon"]])
+    expect(@db.execute("SELECT name FROM sqlite_master WHERE type IN ('table','view') AND name NOT LIKE 'sqlite_%' UNION ALL SELECT name FROM sqlite_temp_master WHERE type IN ('table','view') ORDER BY 1;")).to eq([["pokemons"]])
   end
 
   it "has an autoincrementing id column" do
